@@ -22,10 +22,16 @@ def get_background(name):
     
     for i in range(WIDTH // width + 1):
         for j in range(HEIGHT // height + 1):
-             pos = [i * width, j * height]
+             pos = (i * width, j * height)
              tiles.append(pos)
              
     return tiles, image
+
+def draw(window, background, bg_image):
+    for tile in background:
+        window.blit(bg_image, tile)
+    
+    pygame.display.update()
 
 def main(window):
     clock = pygame.time.Clock()
